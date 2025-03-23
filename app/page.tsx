@@ -1,4 +1,3 @@
-import Image from "next/image";
 import AdminManager from "./components/AdminManager";
 
 export default function Home() {

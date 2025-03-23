@@ -17,7 +17,8 @@ export async function GET(
     }
 
     return NextResponse.json(admin);
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error fetching admin:', error?.message);
     return NextResponse.json({ error: 'Failed to fetch admin' }, { status: 500 });
   }
 }
@@ -42,7 +43,8 @@ export async function PUT(
     });
 
     return NextResponse.json(admin);
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error updating admin:', error?.message);
     return NextResponse.json({ error: 'Failed to update admin' }, { status: 500 });
   }
 }
@@ -59,7 +61,8 @@ export async function DELETE(
     });
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error deleting admin:', error?.message);
     return NextResponse.json({ error: 'Failed to delete admin' }, { status: 500 });
   }
 } 

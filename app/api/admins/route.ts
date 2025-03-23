@@ -6,7 +6,8 @@ export async function GET() {
   try {
     const admins = await prisma.admin.findMany();
     return NextResponse.json(admins);
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error fetching admins:', error?.message);
     return NextResponse.json({ error: 'Failed to fetch admins' }, { status: 500 });
   }
 }
@@ -26,7 +27,8 @@ export async function POST(request: NextRequest) {
     });
     
     return NextResponse.json(admin, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error creating admin:', error?.message);
     return NextResponse.json({ error: 'Failed to create admin' }, { status: 500 });
   }
 } 
